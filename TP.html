@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro | PHP & JavaScript</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="JS/miscript.js" defer></script>
+</head>
+<body>
+    <main class="page-shell">
+        <section class="form-card" aria-labelledby="titulo-formulario">
+            <header class="form-header">
+                <p class="eyebrow">Programación I · Trabajo Práctico N° 3</p>
+                <h1 id="titulo-formulario">Formulario de Registro</h1>
+                <p class="subtitle">Completá tus datos y preferencias. Los campos marcados con * son obligatorios.</p>
+            </header>
+
+            <form id="formularioRegistro" action="recibe.php" method="POST" novalidate>
+                <div class="grid two-cols">
+                    <div class="field-group">
+                        <label for="apellido">Apellido <span>*</span></label>
+                        <input type="text" id="apellido" name="apellido" required maxlength="60" autocomplete="family-name" placeholder="Ej.: García">
+                        <small class="error" aria-live="polite" id="errorApellido"></small>
+                    </div>
+
+                    <div class="field-group">
+                        <label for="nombre">Nombre <span>*</span></label>
+                        <input type="text" id="nombre" name="nombre" required maxlength="60" autocomplete="given-name" placeholder="Ej.: Juan">
+                        <small class="error" aria-live="polite" id="errorNombre"></small>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label for="email">E-mail <span>*</span></label>
+                    <input type="email" id="email" name="email" required maxlength="100" autocomplete="email" placeholder="nombre@ejemplo.com">
+                    <small class="error" aria-live="polite" id="errorEmail"></small>
+                </div>
+
+                <div class="field-group">
+                    <label for="sistema">Tu sistema operativo favorito <span>*</span></label>
+                    <select id="sistema" name="sistema" required>
+                        <option value="">Seleccione un sistema</option>
+                        <option value="Windows">Windows</option>
+                        <option value="Linux">Linux</option>
+                        <option value="macOS">macOS</option>
+                        <option value="Android">Android</option>
+                        <option value="iOS">iOS</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                    <small class="error" id="errorSistema"></small>
+                </div>
+
+                <fieldset class="field-group choice-box">
+                    <legend>¿Tenés experiencia en Programación Web?</legend>
+                    <label class="option-line">
+                        <input type="checkbox" id="experiencia" name="experiencia" value="Si">
+                        <span>Sí, tengo experiencia previa</span>
+                    </label>
+                </fieldset>
+
+                <fieldset class="field-group choice-box">
+                    <legend>¿Qué te gusta más? <span>*</span></legend>
+                    <div class="option-grid">
+                        <label class="option-line">
+                            <input type="radio" name="area" value="Analisis y Diseno">
+                            <span>Análisis y Diseño</span>
+                        </label>
+                        <label class="option-line">
+                            <input type="radio" name="area" value="Programacion">
+                            <span>Programación</span>
+                        </label>
+                        <label class="option-line">
+                            <input type="radio" name="area" value="Bases de Datos">
+                            <span>Bases de Datos</span>
+                        </label>
+                    </div>
+                    <small class="error" id="errorArea"></small>
+                </fieldset>
+
+                <div class="field-group">
+                    <label for="comentario">Comentario</label>
+                    <textarea id="comentario" name="comentario" rows="6" maxlength="500" placeholder="Compartinos tu opinión..."></textarea>
+                    <div class="counter-row">
+                        <small>Máximo 500 caracteres</small>
+                        <small id="contadorComentario">0/500</small>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn btn-primary" type="submit">Enviar datos</button>
+                    <button class="btn btn-secondary" type="reset">Restablecer</button>
+                </div>
+
+                <p id="estadoFormulario" class="form-status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

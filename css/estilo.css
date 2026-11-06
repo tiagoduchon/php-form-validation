@@ -1,0 +1,254 @@
+:root {
+    --bg-1: #0f172a;
+    --bg-2: #1e293b;
+    --card: rgba(255, 255, 255, 0.97);
+    --text: #172033;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --border: #cbd5e1;
+    --error: #b91c1c;
+    --success: #047857;
+    --focus: rgba(37, 99, 235, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.35), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+}
+
+.page-shell {
+    width: min(100% - 32px, 920px);
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+.form-card {
+    background: var(--card);
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    overflow: hidden;
+}
+
+.form-header {
+    padding: 32px 36px 24px;
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.subtitle {
+    margin: 10px 0 0;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+form {
+    padding: 32px 36px 36px;
+}
+
+.grid {
+    display: grid;
+    gap: 18px;
+}
+
+.two-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field-group {
+    margin-bottom: 20px;
+}
+
+label,
+legend {
+    font-weight: 700;
+    font-size: 0.96rem;
+}
+
+label span,
+legend span {
+    color: var(--error);
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--text);
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px var(--focus);
+}
+
+.input-error {
+    border-color: var(--error) !important;
+    box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.10) !important;
+}
+
+.choice-box {
+    border: 1px solid #dbe3ef;
+    border-radius: 12px;
+    padding: 16px;
+    background: #f8fafc;
+}
+
+.choice-box legend {
+    padding: 0 6px;
+}
+
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.option-line {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    padding: 10px 12px;
+    border: 1px solid #dbe3ef;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.option-line input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+}
+
+.error {
+    display: block;
+    min-height: 18px;
+    margin-top: 6px;
+    color: var(--error);
+    font-size: 0.82rem;
+}
+
+.counter-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+    color: var(--muted);
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.form-status {
+    min-height: 20px;
+    margin: 14px 0 0;
+    font-weight: 700;
+}
+
+.form-status.ok {
+    color: var(--success);
+}
+
+.form-status.error {
+    color: var(--error);
+}
+
+@media (max-width: 720px) {
+    .page-shell {
+        width: min(100% - 20px, 920px);
+        padding: 20px 0;
+    }
+
+    .form-header,
+    form {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .two-cols,
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
